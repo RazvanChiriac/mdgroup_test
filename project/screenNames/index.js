@@ -1,2 +1,2 @@
 export const SubBreedDetailsScreen = "SubBreedDetailsScreen";
-export const Home = "Home";
+export const HomeScreen = "HomeScreen";

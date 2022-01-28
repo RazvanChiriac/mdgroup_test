@@ -9,7 +9,7 @@ import { storeImagesURLInLocalStorage, getImagesFromLocalStorage } from "../../a
 
 export const SubBreedDetails = props => {
     const route = useRoute();
-    const [imagesUriArray, setImagesUriArray] = useState([]);
+    const [imagesURLArray, setImagesURLArray] = useState([]);
     let title = "";
 
     if (route.params?.breed && route.params?.subBreed) {
@@ -36,9 +36,9 @@ export const SubBreedDetails = props => {
                 const secondPair = [route.params.subBreed + 1, result[1]];
                 await storeImagesURLInLocalStorage([firstPair, secondPair]);
 
-                setImagesUriArray(result);
+                setImagesURLArray(result);
             } else {
-                setImagesUriArray([localStorageImages[0][1], localStorageImages[1][1]]);
+                setImagesURLArray([localStorageImages[0][1], localStorageImages[1][1]]);
             }
         }
 
@@ -48,8 +48,8 @@ export const SubBreedDetails = props => {
     return (
         <View style={styles.container}>
             <Header backButtonAction={() => props.navigation.goBack()} title={title} />
-            {imagesUriArray.length > 0
-                ? imagesUriArray.map((imageURI, key) => (
+            {imagesURLArray.length > 0
+                ? imagesURLArray.map((imageURI, key) => (
                       <View style={styles.iconView} key={key}>
                           <Image source={{ uri: imageURI }} style={styles.icon}></Image>
                       </View>

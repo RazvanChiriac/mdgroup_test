@@ -4,7 +4,7 @@ import { Text, View, TouchableOpacity } from "react-native";
 import { styles } from "./styles";
 import { capitalizeFirstLetter } from "../../actions";
 import PropTypes from "prop-types";
-import { SubBreedDetailsScreen } from "./project/screenNames";
+import { SubBreedDetailsScreen } from "../../screenNames";
 
 export const DogBreedItem = props => (
     <View style={styles.container}>

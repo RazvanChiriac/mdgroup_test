@@ -9,14 +9,14 @@ import { Provider } from "react-redux";
 import { Store } from "./project/reducers";
 import { fetchDogBreeds } from "./project/actions";
 import localStorage from "./project/localStorage";
-import { SubBreedDetailsScreen, Home } from "./project/screenNames";
+import { SubBreedDetailsScreen, HomeScreen } from "./project/screenNames";
 
 const UserStack = createNativeStackNavigator();
 
 const SafeArea = props => (
     <SafeAreaProvider>
         <SafeAreaView style={{ flex: 1, backgroundColor: "#5c6bc0" }} edges={["top"]}>
-            {children}
+            {props.children}
         </SafeAreaView>
     </SafeAreaProvider>
 );
@@ -42,7 +42,7 @@ export const App = props => {
                             headerShown: false
                         }}
                     >
-                        <UserStack.Screen name={Home} component={Home} />
+                        <UserStack.Screen name={HomeScreen} component={Home} />
                         <UserStack.Screen
                             name={SubBreedDetailsScreen}
                             component={SubBreedDetails}
