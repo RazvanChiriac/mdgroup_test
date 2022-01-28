@@ -3,7 +3,8 @@ import normalize from "react-native-normalize";
 
 export const styles = StyleSheet.create({
     container: {
-        flex: 1
+        flex: 1,
+        backgroundColor: "#CFD8DC"
     },
     title: {
         backgroundColor: "#5c6bc0",
@@ -20,6 +21,7 @@ export const styles = StyleSheet.create({
     },
     containerList: {
         width: "100%",
-        backgroundColor: "#CFD8DC"
+        backgroundColor: "#CFD8DC",
+        paddingBottom: normalize(10)
     }
 });

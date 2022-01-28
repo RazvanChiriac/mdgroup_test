@@ -4,7 +4,6 @@ import normalize from "react-native-normalize";
 export const styles = StyleSheet.create({
     container: {
         width: "100%",
-        backgroundColor: "red",
         borderTopWidth: 1,
         borderTopColor: "#FFFFFF"
     },
@@ -24,8 +23,6 @@ export const styles = StyleSheet.create({
         justifyContent: "center",
         paddingLeft: "6%",
         borderTopWidth: 1,
-        //  borderBottomWidth: 1,
-        // borderBottomColor: "#FFFFFF",
         borderTopColor: "#FFFFFF"
     }
 });

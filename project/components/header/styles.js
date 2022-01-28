@@ -7,24 +7,26 @@ export const styles = StyleSheet.create({
         height: normalize(55),
         width: "100%",
         flexDirection: "row",
-        alignItems: "flex-end",
-        paddingBottom: "2%"
+        alignItems: "flex-end"
     },
     title: {
+        justifyContent: "center",
+        alignItems: "center",
+        minWidth: "65%",
+        paddingBottom: "1%"
+    },
+
+    titleText: {
         fontSize: 24,
         color: "#FFFFFF",
         fontWeight: "700"
-        //marginLeft: "20%"
     },
     backButton: {
         flexDirection: "row",
-        height: "100%",
-        width: "100%",
-        alignItems: "center"
-    },
-    headerLeft: {
-        width: "15%",
-        height: normalize(30)
+        height: normalize(30),
+        width: "20%",
+        alignItems: "center",
+        paddingBottom: normalize(5)
     },
 
     backIcon: {
@@ -34,7 +36,8 @@ export const styles = StyleSheet.create({
     },
     backButtonText: {
         color: "#FFFFFF",
-        fontWeight: "700",
-        textAlign: "center"
+        fontWeight: "500",
+        textAlign: "center",
+        fontSize: 16
     }
 });

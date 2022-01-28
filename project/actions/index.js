@@ -17,12 +17,12 @@ export async function fetchDogBreeds() {
     }
 }
 
-export async function getImagesBySubBreed(breed, subBreed, imagesNumber = 3) {
-    const URL = apiURL + "/" + breed + "/" + subBreed + "/images/random/" + imagesNumber;
-
+export async function getImagesBySubBreed(breed, subBreed, imagesNumber = 2) {
+    const URL = apiURL + "/breed/" + breed + "/" + subBreed + "/images/random/" + imagesNumber;
+    console.log(URL);
     let result = await axios.get(URL);
 
     if (result.status == "200" && result.data.status == "success") {
-        console.log(result);
-    }
+        return result.data.message;
+    } else return [];
 }
