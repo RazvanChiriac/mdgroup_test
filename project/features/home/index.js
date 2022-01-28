@@ -1,28 +1,28 @@
 import React from "react";
 import { Text, View, FlatList } from "react-native";
 import { connect } from "react-redux";
+import { convertDogBreedsObjectToArray } from "../../reducers/dogs/selectors";
+import { DogBreedItem } from "../../components/dogBreedItem";
+import { styles } from "./styles";
 
 const Home = props => {
     return (
-        <View
-            style={{
-                backgroundColor: "#5c6bc0",
-                height: 75,
-                width: "100%",
-                alignItems: "center",
-                justifyContent: "flex-end"
-            }}
-        >
-            <Text style={{ fontSize: 24, color: "#FFFFFF", fontWeight: "700", marginBottom: 5 }}>
-                Doggy McDogFace
-            </Text>
+        <View style={styles.container}>
+            <View style={styles.title}>
+                <Text style={styles.titleText}>Doggy McDogFace</Text>
+            </View>
+            <FlatList
+                style={styles.containerList}
+                data={props.dogsBreeds}
+                renderItem={({ item }) => <DogBreedItem item={item}></DogBreedItem>}
+            ></FlatList>
         </View>
     );
 };
 
 const mapStateToProps = state => {
     return {
-        dogsBreeds: state.User.dogs.breeds
+        dogsBreeds: convertDogBreedsObjectToArray(state)
     };
 };
 const mapDispatchToProps = {};

@@ -20,7 +20,7 @@ export const App = props => {
     });
     return (
         <SafeAreaProvider>
-            <SafeAreaView style={{ flex: 1 }} edges={["top"]}>
+            <SafeAreaView style={{ flex: 1, backgroundColor: "#5c6bc0" }} edges={["top"]}>
                 <Provider store={Store}>
                     <NavigationContainer>
                         <UserStack.Navigator
