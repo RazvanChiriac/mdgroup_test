@@ -1,7 +1,11 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { Text, View, TouchableOpacity } from "react-native";
 import { styles } from "./styles";
 import { capitalizeFirstLetter } from "../../actions";
+
+function onSubBreedPress(breed, subBreed) {
+    console.log(breed, subBreed);
+}
 
 export const DogBreedItem = props => (
     <View style={styles.container}>
@@ -11,11 +15,21 @@ export const DogBreedItem = props => (
 
         {props.item.subBreeds?.length > 0
             ? props.item.subBreeds.map((subBreed, key) => (
-                  <View key={key} style={styles.subtitle}>
+                  <TouchableOpacity
+                      key={key}
+                      style={styles.subtitle}
+                      onPress={() => {
+                          onSubBreedPress(props.item.breedName, subBreed);
+                          props.navigation.navigate("SubBreedDetailsScreen", {
+                              breed: props.item.breedName,
+                              subBreed: subBreed
+                          });
+                      }}
+                  >
                       <Text style={styles.titleText}>
                           {capitalizeFirstLetter(subBreed) + " " + props.item.breedName}
                       </Text>
-                  </View>
+                  </TouchableOpacity>
               ))
             : null}
     </View>

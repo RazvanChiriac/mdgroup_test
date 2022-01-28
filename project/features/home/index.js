@@ -4,17 +4,19 @@ import { connect } from "react-redux";
 import { convertDogBreedsObjectToArray } from "../../reducers/dogs/selectors";
 import { DogBreedItem } from "../../components/dogBreedItem";
 import { styles } from "./styles";
+import { Header } from "../../components/header";
 
 const Home = props => {
     return (
         <View style={styles.container}>
-            <View style={styles.title}>
-                <Text style={styles.titleText}>Doggy McDogFace</Text>
-            </View>
+            <Header title={"Doggy McDogFace"} />
+
             <FlatList
                 style={styles.containerList}
                 data={props.dogsBreeds}
-                renderItem={({ item }) => <DogBreedItem item={item}></DogBreedItem>}
+                renderItem={({ item }) => (
+                    <DogBreedItem item={item} navigation={props.navigation}></DogBreedItem>
+                )}
             ></FlatList>
         </View>
     );
