@@ -1,0 +1,17 @@
+{
+    "tabWidth" : 4,
+    "printWidth": 100,
+    "overrides": [
+        {
+            "files": ["*.js"],
+            "options": {
+                "semi":true,
+                "trailingComma": "none",
+                "quoteProps": "as-needed",
+                "bracketSpacing": true,
+                "jsxSingleQuote": false,
+                "arrowParens": "avoid"
+            }
+        }
+    ]
+}
