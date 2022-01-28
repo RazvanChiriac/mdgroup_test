@@ -8,8 +8,18 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Provider } from "react-redux";
 import { Store } from "./project/reducers";
 import { fetchDogBreeds } from "./project/actions";
+import localStorage from "./project/localStorage";
+import { SubBreedDetailsScreen, Home } from "./project/screenNames";
 
 const UserStack = createNativeStackNavigator();
+
+const SafeArea = props => (
+    <SafeAreaProvider>
+        <SafeAreaView style={{ flex: 1, backgroundColor: "#5c6bc0" }} edges={["top"]}>
+            {children}
+        </SafeAreaView>
+    </SafeAreaProvider>
+);
 
 export const App = props => {
     useEffect(() => {
@@ -17,27 +27,29 @@ export const App = props => {
             await fetchDogBreeds();
         }
         fetchData();
+
+        return async () => {
+            await localStorage.clearLocalStorage();
+        };
     }, []);
 
     return (
-        <SafeAreaProvider>
-            <SafeAreaView style={{ flex: 1, backgroundColor: "#5c6bc0" }} edges={["top"]}>
-                <Provider store={Store}>
-                    <NavigationContainer>
-                        <UserStack.Navigator
-                            screenOptions={{
-                                headerShown: false
-                            }}
-                        >
-                            <UserStack.Screen name={"Home"} component={Home} />
-                            <UserStack.Screen
-                                name={"SubBreedDetailsScreen"}
-                                component={SubBreedDetails}
-                            />
-                        </UserStack.Navigator>
-                    </NavigationContainer>
-                </Provider>
-            </SafeAreaView>
-        </SafeAreaProvider>
+        <SafeArea>
+            <Provider store={Store}>
+                <NavigationContainer>
+                    <UserStack.Navigator
+                        screenOptions={{
+                            headerShown: false
+                        }}
+                    >
+                        <UserStack.Screen name={Home} component={Home} />
+                        <UserStack.Screen
+                            name={SubBreedDetailsScreen}
+                            component={SubBreedDetails}
+                        />
+                    </UserStack.Navigator>
+                </NavigationContainer>
+            </Provider>
+        </SafeArea>
     );
 };

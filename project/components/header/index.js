@@ -1,6 +1,8 @@
 import React from "react";
+
 import { Text, View, Image, Pressable } from "react-native";
 import { styles } from "./styles";
+import PropTypes from "prop-types";
 
 export const Header = props => (
     <View style={styles.container}>
@@ -14,3 +16,13 @@ export const Header = props => (
         </View>
     </View>
 );
+
+Header.defaultProps = {
+    backButtonAction: () => console.log("button pressed"),
+    title: ""
+};
+
+Header.propTypes = {
+    backButtonAction: PropTypes.func,
+    title: PropTypes.string
+};

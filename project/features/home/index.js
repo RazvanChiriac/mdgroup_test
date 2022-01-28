@@ -15,9 +15,7 @@ const Home = props => {
             <FlatList
                 style={styles.containerList}
                 data={props.dogsBreeds}
-                renderItem={({ item }) => (
-                    <DogBreedItem item={item} navigation={props.navigation} />
-                )}
+                renderItem={({ item }) => <DogBreedItem {...item} navigation={props.navigation} />}
             />
         </View>
     );
